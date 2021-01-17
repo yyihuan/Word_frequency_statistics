@@ -35,7 +35,7 @@ cwd = os.getcwd()
 bookname = "test.xlsx"
 book_io = cwd + "/" + bookname  # 对应Book的excel文件的绝对路径
 wordlist_name = "test_leadin.txt"
-wordlist_io = r"{} / {}".format(cwd, wordlist_name)路径
+wordlist_io = r"{} / {}".format(cwd, wordlist_name)
 
 class Book:
     
