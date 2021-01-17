@@ -33,7 +33,9 @@ import os
 
 cwd = os.getcwd()
 bookname = "test.xlsx"
-io = cwd + "/" + bookname  # 对应Book的excel文件的绝对路径
+book_io = cwd + "/" + bookname  # 对应Book的excel文件的绝对路径
+wordlist_name = "test_leadin.txt"
+wordlist_io = r"{} / {}".format(cwd, wordlist_name)路径
 
 class Book:
     
@@ -138,9 +140,14 @@ class Sheet:
     def save(self):
         self.update_all_frequency()
         self.df.to_excel(io)
-    
-    def lead_in(self, path):
-        with open(r"test_leadin.txt", "r") as f:
+
+    def lead_in(self, wordlist_path):
+        """
+        导入已有单词，以回车分隔的文本文档
+
+        :param wordlist_path: 导入的文本路径
+        """
+        with open(wordlist_path, "r") as f:
             word_list = [i.rstrip("\n") for i in f.readlines()]
         print("Reading word file")
-        for word in word_list:  self.set(word) 
+        for word in word_list:  self.set(word)
